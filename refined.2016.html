@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta name="x-apple-disable-message-reformatting">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="telephone=no" name="format-detection">
+    <title>Refined!</title>
+</head>
+<body style="margin: 0; padding: 0; background-color: #f8f7ff; color:#293241">
+<!--[if mso 16]> Outlook 2016 <![endif]-->
+<table style="width: 100%;">
+    <tr>
+        <td></td>
+        <td style="background-color: #e0fbfc; border: 2px solid #ee6c4d;">
+            <table>
+                <tr>
+                    <td>
+                        <img src="https://github.com/albiberto/automation-images/blob/main/asserts/Refined/Homer-Refined-96x96.png" alt="status-img"/>
+                    </td>
+                    <td style="vertical-align: middle;">
+                        <table>
+                            <tr>
+                                <td>
+                                    <a href="https://jira.euris.it/browse/{{project.key}}">{{project.key}}</a>&nbsp;<strong>|</strong>
+                                </td>
+                                <td>
+                                    <img src="https://jira.euris.it/images/icons/issuetypes/subtask.png" alt="subtask-icon"/>
+                                </td>
+                                <td>
+                                    <a href="{{url}}">{{key}}</a><span>{{issue.status.name}}</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>{{issue.summary}}</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+
+            <table>
+                <tr>
+                    <td style="width: 30%;  vertical-align: top;">
+                        <table>
+                            <tr>
+                                <td>
+                                    <table>
+                                        <tr>
+                                            <td><strong>Type:</strong>&nbsp;</td>
+                                            <td><img src="https://jira.euris.it/images/icons/issuetypes/bug.png" alt="bug-icon"/></td>
+                                            <td>{{issue.issueType.name}}</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <table>
+                                        <tr>
+                                            <td><strong>Priority:</strong>&nbsp;</td>
+                                            <td><img src="https://jira.euris.it/images/icons/priorities/blocker.png" alt="blocker-priority-icon"/></td>
+                                            <td>{{issue.priority.name}}</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <table>
+                                        <tr>
+                                            <td><strong>Parent:</strong></td>
+                                            <td colspan="2"><a href="{{issue.parent.url}}">{{issue.parent.key}}</a></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <table>
+                                        <tr>
+                                            <td><strong>Parent Type:</strong>&nbsp;</td>
+                                            <td><img src="https://jira.euris.it/images/icons/issuetypes/bug.png" alt="bug-icon"/></td>
+                                            <td>{{issue.parent.issueType.name}}</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <table>
+                                        <tr>
+                                            <td><strong>Assignee:</strong>&nbsp;</td>
+                                            <td><img src="{{assignee.avatarUrls.&quot;24x24&quot;}}"/></td>
+                                            <td>{{issue.assignee.displayName}}</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <table>
+                                        <tr>
+                                            <td><strong>Reporter:</strong>&nbsp;</td>
+                                            <td><img src="{{reporter.avatarUrls.&quot;24x24&quot;}}"/></td>
+                                            <td>{{issue.reporter.displayName}}</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+
+                    <td style="width: 70%; vertical-align: top;">
+                        <table>
+                            <tr>
+                                <td>
+                                    <strong>Description:</strong>
+                                    <br />
+                                    <p>{{issue.description}}</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+        <td></td>
+    </tr>
+</table>
+</body>
+</html>
