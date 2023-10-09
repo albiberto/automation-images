@@ -16,7 +16,7 @@
             <table>
                 <tr>
                     <td>
-                        <img src="https://raw.githubusercontent.com/albiberto/automation-images/main/asserts/Refined/Homer-Refined-96x96.png" alt="status-img"/>
+                        <img src="https://raw.githubusercontent.com/albiberto/automation-images/main/asserts/ToDo/Homer-ToDo-96x96.png" alt="status-img"/>
                     </td>
                     <td style="vertical-align: middle;">
                         <table>
@@ -27,7 +27,7 @@
                                         <a href="https://jira.euris.it/browse/{{issue.parent.key}}">{{issue.parent.key}}</a>&nbsp;/
                                     {{/}}
                                     <a href="{{url}}">{{key}}</a>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;<span style="background-color: #8fe15f;">&nbsp;&nbsp;{{issue.status.name}}&nbsp;&nbsp;</span>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;<span style="background-color: #5fa6e1;">&nbsp;&nbsp;{{issue.status.name}}&nbsp;&nbsp;</span>
                                 </td>
                             </tr>
                             <tr>
@@ -144,6 +144,39 @@
                                             <td><strong>Reporter:</strong>&nbsp;</td>
                                             <td><img src="{{reporter.avatarUrls.&quot;24x24&quot;}}" style="border-radius: 100%;" /></td>
                                             <td>{{issue.reporter.displayName}}</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <table>
+                                        <tr>
+                                            <td><strong>Start Date:</strong>&nbsp;</td>
+                                            <td>{{issue.Start Date}}</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <table>
+                                        <tr>
+                                            <td><strong>Due Date:</strong>&nbsp;</td>
+                                            <td>{{issue.Due Date}}</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <table>
+                                        <tr>
+                                            <td><strong>Original Estimate:</strong>&nbsp;</td>
+                                            <td>{{issue.OriginalEstimate}}</td>
                                         </tr>
                                     </table>
                                 </td>
