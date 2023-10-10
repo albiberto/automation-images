@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta name="x-apple-disable-message-reformatting">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="telephone=no" name="format-detection">
+    <title>Refined!</title>
+</head>
+<body style="margin: 0; padding: 0; background-color: #d1dbe4; color:#1c1c1c">
+<table style="width: 100%;">
+    <tr>
+        <td></td>
+        <td style="width: 90%; vertical-align: middle; text-align: left; background-color: #f9f9f9; border: 2px solid #c90064;">
+            <table>
+                <tr>
+                    <td>
+                        <img src="https://raw.githubusercontent.com/albiberto/automation-images/main/asserts/Review/Homer-Review-96x96.png" alt="status-img"/>
+                    </td>
+                    <td style="vertical-align: middle;">
+                        <table>
+                            <tr>
+                                <td>
+                                    <a href="https://jira.euris.it/browse/{{project.key}}">{{project.key}}</a>&nbsp;/
+                                    {{#if(exists(issue.parent.key))}}
+                                        <a href="https://jira.euris.it/browse/{{issue.parent.key}}">{{issue.parent.key}}</a>&nbsp;/
+                                    {{/}}
+                                    <a href="{{url}}">{{key}}</a>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;<span style="background-color: #e15f70;">&nbsp;&nbsp;{{issue.status.name}}&nbsp;&nbsp;</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="color:#194a7a; font-weight: bold; font-size: 28px;">{{issue.summary}}</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+
+            <table>
+                <tr>
+                    <td style="width: 30%;  vertical-align: top;">
+                        <table>
+                            <tr>
+                                <td>
+                                    <table>
+                                        <tr height="28px">
+                                            <td><strong>Type:</strong>&nbsp;</td>
+                                            <td>
+                                                {{#if(equals(issue.issueType.name, "Bug"))}}
+                                                    <img style="outline: none; text-decoration: none; border-radius: 100%" src="https://jira.euris.it/images/icons/issuetypes/bug.png" alt="bug-icon"/>
+                                                {{/}}       
+                                                {{#if(equals(issue.issueType.name, "Story"))}}
+                                                    <img style="outline: none; text-decoration: none; border-radius: 100%" src="https://jira.euris.it/images/icons/issuetypes/story.png" alt="story-icon"/>
+                                                {{/}}
+                                                {{#if(equals(issue.issueType.name, "Task"))}}
+                                                    <img style="outline: none; text-decoration: none; border-radius: 100%" src="https://jira.euris.it/images/icons/issuetypes/task.png" alt="task-icon"/>
+                                                {{/}}
+                                                {{#if(equals(issue.issueType.name, "Sub-task"))}}
+                                                    <img style="outline: none; text-decoration: none; border-radius: 100%" src="https://jira.euris.it/images/icons/issuetypes/subtask.png" alt="subtask-icon"/>
+                                                {{/}}
+                                            </td>
+                                            <td>{{issue.issueType.name}}</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+
+                            {{#if(exists(issue.parent.key))}}
+                                <tr>
+                                    <td>
+                                        <table>
+                                            <tr>
+                                                <td><strong>Parent Type:</strong>&nbsp;</td>
+                                                <td>
+                                                    {{#if(equals(issue.parent.issueType.name, "Bug"))}}
+                                                        <img style="outline: none; text-decoration: none; border-radius: 100%;" src="https://jira.euris.it/images/icons/issuetypes/bug.png" alt="bug-icon"/>
+                                                    {{/}}
+                                                    {{#if(equals(issue.parent.issueType.name, "Story"))}}
+                                                        <img style="outline: none; text-decoration: none; border-radius: 100%;" src="https://jira.euris.it/images/icons/issuetypes/story.png" alt="story-icon"/>
+                                                    {{/}}
+                                                    {{#if(equals(issue.parent.issueType.name, "Task"))}}
+                                                        <img style="outline: none; text-decoration: none; border-radius: 100%;" src="https://jira.euris.it/images/icons/issuetypes/task.png" alt="task-icon"/>
+                                                    {{/}}
+                                                    {{#if(equals(issue.parent.issueType.name, "Sub-task"))}}
+                                                        <img style="outline: none; text-decoration: none; border-radius: 100%;" src="https://jira.euris.it/images/icons/issuetypes/subtask.png" alt="subtask-icon"/>
+                                                    {{/}}
+                                                </td>
+                                                <td>{{issue.parent.issueType.name}}</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            {{/}}
+
+                            <tr>
+                                <td>
+                                    <table>
+                                        <tr>
+                                            <td><strong>Priority:</strong>&nbsp;</td>
+                                                <td>
+                                                    {{#if(equals(issue.priority.name, "Blocker"))}}
+                                                        <img style="outline: none; text-decoration: none; border-radius: 100%;" src="https://jira.euris.it/images/icons/priorities/blocker.png" alt="blocker-priority-icon"/>
+                                                    {{/}}
+                                                    {{#if(equals(issue.priority.name, "Highest"))}}
+                                                        <img style="outline: none; text-decoration: none; border-radius: 100%;" src="https://jira.euris.it/images/icons/priorities/highest.png" alt="highest-priority-icon"/>
+                                                    {{/}}
+                                                    {{#if(equals(issue.priority.name, "High"))}}
+                                                        <img style="outline: none; text-decoration: none; border-radius: 100%;" src="https://jira.euris.it/images/icons/priorities/high.png" alt="high-priority-icon"/>
+                                                    {{/}}
+                                                    {{#if(equals(issue.priority.name, "Medium"))}}
+                                                        <img style="outline: none; text-decoration: none; border-radius: 100%;" src="https://jira.euris.it/images/icons/priorities/medium.png" alt="medium-priority-icon"/>
+                                                    {{/}}
+                                                    {{#if(equals(issue.priority.name, "Low"))}}
+                                                        <img style="outline: none; text-decoration: none; border-radius: 100%;" src="https://jira.euris.it/images/icons/priorities/low.png" alt="low-priority-icon"/>
+                                                    {{/}}
+                                                    {{#if(equals(issue.priority.name, "Lowest"))}}
+                                                        <img style="outline: none; text-decoration: none; border-radius: 100%;" src="https://jira.euris.it/images/icons/priorities/lowest.png" alt="lowest-priority-icon"/>
+                                                    {{/}}
+                                                </td>
+                                                <td>{{issue.priority.name}}</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <table>
+                                        <tr>
+                                            <td><strong>Assignee:</strong>&nbsp;</td>
+                                            <td><img src="{{assignee.avatarUrls.&quot;24x24&quot;}}" style="border-radius: 100%;" /></td>
+                                            <td>{{issue.assignee.displayName}}</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <table>
+                                        <tr>
+                                            <td><strong>Reporter:</strong>&nbsp;</td>
+                                            <td><img src="{{reporter.avatarUrls.&quot;24x24&quot;}}" style="border-radius: 100%;" /></td>
+                                            <td>{{issue.reporter.displayName}}</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <table>
+                                        <tr>
+                                            <td><strong>Start Date:</strong>&nbsp;</td>
+                                            <td>{{issue.Start Date.format("dd/MM/yyyy")}}</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <table>
+                                        <tr>
+                                            <td><strong>Due Date:</strong>&nbsp;</td>
+                                            <td>{{issue.Due Date.format("dd/MM/yyyy")}}</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <table>
+                                        <tr>
+                                            <td><strong>Original Estimate:</strong>&nbsp;</td>
+                                            <td>
+                                                {{#if(issue.Original Estimate.gt(0))}}
+                                                    {{#=}}FLOOR({{Original Estimate}} / 28800){{/}}d
+                                                    {{#=}}FLOOR(({{Original Estimate}} % 28800) / 3600){{/}}h
+                                                    {{#=}}FLOOR((({{Original Estimate}} % 28800) % 3600) / 60){{/}}m
+                                                {{/}}
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <table>
+                                        <tr>
+                                            <td><strong>Time Spent:</strong>&nbsp;</td>
+                                            <td>
+                                                {{#if(issue.TimeSpent.gt(0))}}
+                                                    {{#=}}FLOOR({{TimeSpent}} / 28800){{/}}d
+                                                    {{#=}}FLOOR(({{TimeSpent}} % 28800) / 3600){{/}}h
+                                                    {{#=}}FLOOR((({{TimeSpent}} % 28800) % 3600) / 60){{/}}m
+                                                {{/}}
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <table>
+                                        <tr>
+                                            <td><strong>Original Estimate:</strong>&nbsp;</td>
+                                            <td>
+                                                {{#if(issue.TimeSpent.gt(0))}}
+                                                    {{#=}}FLOOR({{TimeSpent}} / 28800){{/}}d
+                                                    {{#=}}FLOOR(({{TimeSpent}} % 28800) / 3600){{/}}h
+                                                    {{#=}}FLOOR((({{TimeSpent}} % 28800) % 3600) / 60){{/}}m
+                                                {{/}}
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+
+                    <td style="width: 70%; vertical-align: top;">
+                        <table>
+                            <tr height="30px">
+                                <td>
+                                    <strong>Description:</strong>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>{{issue.description}}</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+        <td></td>
+    </tr>
+</table>
+</body>
+</html>

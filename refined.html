@@ -44,9 +44,15 @@
                         <table>
                             <tr>
                                 <td>
+                                    <h3>Issue Detail:</h3>
+                                </td>
+                            </tr>
+
+                            <tr style="padding-left: 10px;">
+                                <td>
                                     <table>
-                                        <tr height="28px">
-                                            <td><strong>Type:</strong>&nbsp;</td>
+                                        <tr>
+                                            <td><h5>Type:</h5>&nbsp;</td>
                                             <td>
                                                 {{#if(equals(issue.issueType.name, "Bug"))}}
                                                     <img style="outline: none; text-decoration: none; border-radius: 100%" src="https://jira.euris.it/images/icons/issuetypes/bug.png" alt="bug-icon"/>
@@ -67,12 +73,73 @@
                                 </td>
                             </tr>
 
+                            <tr style="padding-left: 10px;">
+                                <td>
+                                    <table>
+                                        <tr>
+                                            <td><h5>Priority:</h5>&nbsp;</td>
+                                            <td>
+                                                {{#if(equals(issue.priority.name, "Blocker"))}}
+                                                    <img style="outline: none; text-decoration: none; border-radius: 100%;" src="https://jira.euris.it/images/icons/priorities/blocker.png" alt="blocker-priority-icon"/>
+                                                {{/}}
+                                                {{#if(equals(issue.priority.name, "Highest"))}}
+                                                    <img style="outline: none; text-decoration: none; border-radius: 100%;" src="https://jira.euris.it/images/icons/priorities/highest.png" alt="highest-priority-icon"/>
+                                                {{/}}
+                                                {{#if(equals(issue.priority.name, "High"))}}
+                                                    <img style="outline: none; text-decoration: none; border-radius: 100%;" src="https://jira.euris.it/images/icons/priorities/high.png" alt="high-priority-icon"/>
+                                                {{/}}
+                                                {{#if(equals(issue.priority.name, "Medium"))}}
+                                                    <img style="outline: none; text-decoration: none; border-radius: 100%;" src="https://jira.euris.it/images/icons/priorities/medium.png" alt="medium-priority-icon"/>
+                                                {{/}}
+                                                {{#if(equals(issue.priority.name, "Low"))}}
+                                                    <img style="outline: none; text-decoration: none; border-radius: 100%;" src="https://jira.euris.it/images/icons/priorities/low.png" alt="low-priority-icon"/>
+                                                {{/}}
+                                                {{#if(equals(issue.priority.name, "Lowest"))}}
+                                                    <img style="outline: none; text-decoration: none; border-radius: 100%;" src="https://jira.euris.it/images/icons/priorities/lowest.png" alt="lowest-priority-icon"/>
+                                                {{/}}
+                                            </td>
+                                            <td>{{issue.priority.name}}</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            
+                            <tr style="padding-left: 10px;">
+                                <td>
+                                    <table>
+                                        <tr>
+                                            <td><h5>Assignee:</h5>&nbsp;</td>
+                                            <td><img src="{{assignee.avatarUrls.&quot;24x24&quot;}}" style="border-radius: 100%;" /></td>
+                                            <td>{{issue.assignee.displayName}}</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+
+                            <tr style="padding-left: 10px;">
+                                <td>
+                                    <table>
+                                        <tr>
+                                            <td><h5>Reporter:</h5>&nbsp;</td>
+                                            <td><img src="{{reporter.avatarUrls.&quot;24x24&quot;}}" style="border-radius: 100%;" /></td>
+                                            <td>{{issue.reporter.displayName}}</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+
                             {{#if(exists(issue.parent.key))}}
-                                <tr>
+                                <tr style="padding-top: 20px;">
+                                    <td>
+                                        <h4>Parent Detail:</h4>
+                                    </td>
+                                </tr>
+                                
+                                <tr style="padding-left: 10px;">
                                     <td>
                                         <table>
                                             <tr>
-                                                <td><strong>Parent Type:</strong>&nbsp;</td>
+                                                <td><h5>Parent Type:</h5>&nbsp;</td>
                                                 <td>
                                                     {{#if(equals(issue.parent.issueType.name, "Bug"))}}
                                                         <img style="outline: none; text-decoration: none; border-radius: 100%;" src="https://jira.euris.it/images/icons/issuetypes/bug.png" alt="bug-icon"/>
@@ -92,70 +159,82 @@
                                         </table>
                                     </td>
                                 </tr>
-                            {{/}}
 
-                            <tr>
-                                <td>
-                                    <table>
-                                        <tr>
-                                            <td><strong>Priority:</strong>&nbsp;</td>
+                                <tr style="padding-left: 10px;">
+                                    <td>
+                                        <table>
+                                            <tr>
+                                                <td><h5>Parent Priority:</h5>&nbsp;</td>
                                                 <td>
-                                                    {{#if(equals(issue.priority.name, "Blocker"))}}
+                                                    {{#if(equals(parent.priority.name, "Blocker"))}}
                                                         <img style="outline: none; text-decoration: none; border-radius: 100%;" src="https://jira.euris.it/images/icons/priorities/blocker.png" alt="blocker-priority-icon"/>
                                                     {{/}}
-                                                    {{#if(equals(issue.priority.name, "Highest"))}}
+                                                    {{#if(equals(parent.priority.name, "Highest"))}}
                                                         <img style="outline: none; text-decoration: none; border-radius: 100%;" src="https://jira.euris.it/images/icons/priorities/highest.png" alt="highest-priority-icon"/>
                                                     {{/}}
-                                                    {{#if(equals(issue.priority.name, "High"))}}
+                                                    {{#if(equals(parent.priority.name, "High"))}}
                                                         <img style="outline: none; text-decoration: none; border-radius: 100%;" src="https://jira.euris.it/images/icons/priorities/high.png" alt="high-priority-icon"/>
                                                     {{/}}
-                                                    {{#if(equals(issue.priority.name, "Medium"))}}
+                                                    {{#if(equals(parent.priority.name, "Medium"))}}
                                                         <img style="outline: none; text-decoration: none; border-radius: 100%;" src="https://jira.euris.it/images/icons/priorities/medium.png" alt="medium-priority-icon"/>
                                                     {{/}}
-                                                    {{#if(equals(issue.priority.name, "Low"))}}
+                                                    {{#if(equals(parent.priority.name, "Low"))}}
                                                         <img style="outline: none; text-decoration: none; border-radius: 100%;" src="https://jira.euris.it/images/icons/priorities/low.png" alt="low-priority-icon"/>
                                                     {{/}}
-                                                    {{#if(equals(issue.priority.name, "Lowest"))}}
+                                                    {{#if(equals(parent.priority.name, "Lowest"))}}
                                                         <img style="outline: none; text-decoration: none; border-radius: 100%;" src="https://jira.euris.it/images/icons/priorities/lowest.png" alt="lowest-priority-icon"/>
                                                     {{/}}
                                                 </td>
-                                                <td>{{issue.priority.name}}</td>
-                                        </tr>
-                                    </table>
-                                </td>
-                            </tr>
-                            
-                            <tr>
-                                <td>
-                                    <table>
-                                        <tr>
-                                            <td><strong>Assignee:</strong>&nbsp;</td>
-                                            <td><img src="{{assignee.avatarUrls.&quot;24x24&quot;}}" style="border-radius: 100%;" /></td>
-                                            <td>{{issue.assignee.displayName}}</td>
-                                        </tr>
-                                    </table>
-                                </td>
-                            </tr>
+                                                <td>{{parent.priority.name}}</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+    
+                                <tr style="padding-left: 10px;">
+                                    <td>
+                                        <table>
+                                            <tr>
+                                                <td><h5>Status:</h5>&nbsp;</td>
+                                                <td colspan="2">{{parent.status.name}}</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                
+                                <tr style="padding-left: 10px;">
+                                    <td>
+                                        <table>
+                                            <tr>
+                                                <td><h5>Assignee:</h5>&nbsp;</td>
+                                                <td><img src="{{parent.assignee.avatarUrls.&quot;24x24&quot;}}" style="border-radius: 100%;" /></td>
+                                                <td>{{parent.assignee.displayName}}</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+    
+                                <tr style="padding-left: 10px;">
+                                    <td>
+                                        <table>
+                                            <tr>
+                                                <td><h5>Reporter:</h5>&nbsp;</td>
+                                                <td><img src="{{parent.reporter.avatarUrls.&quot;24x24&quot;}}" style="border-radius: 100%;" /></td>
+                                                <td>{{parent.reporter.displayName}}</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            {{/}}
 
-                            <tr>
-                                <td>
-                                    <table>
-                                        <tr>
-                                            <td><strong>Reporter:</strong>&nbsp;</td>
-                                            <td><img src="{{reporter.avatarUrls.&quot;24x24&quot;}}" style="border-radius: 100%;" /></td>
-                                            <td>{{issue.reporter.displayName}}</td>
-                                        </tr>
-                                    </table>
-                                </td>
-                            </tr>
                         </table>
                     </td>
 
                     <td style="width: 70%; vertical-align: top;">
                         <table>
-                            <tr height="30px">
+                            <tr>
                                 <td>
-                                    <strong>Description:</strong>
+                                    <h3>Description:</h3>
                                 </td>
                             </tr>
                             <tr>
