@@ -154,7 +154,7 @@
                                     <table>
                                         <tr>
                                             <td><strong>Start Date:</strong>&nbsp;</td>
-                                            <td>{{issue.Start Date}}</td>
+                                            <td>{{issue.Start Date.format("dd/MM/yyyy")}}</td>
                                         </tr>
                                     </table>
                                 </td>
@@ -165,7 +165,7 @@
                                     <table>
                                         <tr>
                                             <td><strong>Due Date:</strong>&nbsp;</td>
-                                            <td>{{issue.Due Date}}</td>
+                                            <td>{{issue.Due Date.format("dd/MM/yyyy")}}</td>
                                         </tr>
                                     </table>
                                 </td>
@@ -176,7 +176,13 @@
                                     <table>
                                         <tr>
                                             <td><strong>Original Estimate:</strong>&nbsp;</td>
-                                            <td>{{issue.OriginalEstimate}}</td>
+                                            <td>
+                                                {{#if(issue.Original Estimate.gt(0))}}
+                                                    {{#=}}FLOOR({{Original Estimate}} / 28800){{/}}d
+                                                    {{#=}}FLOOR(({{Original Estimate}} % 28800) / 3600){{/}}h
+                                                    {{#=}}FLOOR((({{Original Estimate}} % 28800) % 3600) / 60){{/}}m
+                                                {{/}}
+                                            </td>
                                         </tr>
                                     </table>
                                 </td>
