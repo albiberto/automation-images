@@ -133,7 +133,7 @@
                                     <table>
                                         <tr>
                                             <td><h5>Start Date:</h5>&nbsp;</td>
-                                            <td>{{issue.Start Date.fullDate}}</td>
+                                            <td>{{issue.Start Date.mediumDate}}</td>
                                         </tr>
                                     </table>
                                 </td>
@@ -144,7 +144,7 @@
                                     <table>
                                         <tr>
                                             <td><h5>Due Date:</h5>&nbsp;</td>
-                                            <td>{{issue.Due Date.fullDate}}</td>
+                                            <td>{{issue.Due Date.mediumDate}}</td>
                                         </tr>
                                     </table>
                                 </td>
@@ -161,7 +161,6 @@
                                         </tr>
                                     </table>
                                 </td>
-                            </tr>
 
                             {{#if(exists(issue.parent.key))}}
                                 <tr style="padding-top: 20px;">
