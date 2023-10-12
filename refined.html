@@ -27,7 +27,7 @@
                                         <a href="https://jira.euris.it/browse/{{issue.parent.key}}">{{issue.parent.key}}</a>&nbsp;/
                                     {{/}}
                                     <a href="{{url}}">{{key}}</a>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;<span style="background-color: #8fe15f;">&nbsp;&nbsp;{{issue.status.name}}&nbsp;&nbsp;</span>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;<span style="background-color: #ffd166;">&nbsp;&nbsp;{{issue.status.name}}&nbsp;&nbsp;</span>
                                 </td>
                             </tr>
                             <tr>
@@ -52,7 +52,7 @@
                                 <td>
                                     <table>
                                         <tr>
-                                            <td><h5>Type:</h5>&nbsp;</td>
+                                            <td><strong>Type:</strong>&nbsp;</td>
                                             <td>
                                                 {{#if(equals(issue.issueType.name, "Bug"))}}
                                                     <img style="outline: none; text-decoration: none; border-radius: 100%" src="https://jira.euris.it/images/icons/issuetypes/bug.png" alt="bug-icon"/>
@@ -77,7 +77,7 @@
                                 <td>
                                     <table>
                                         <tr>
-                                            <td><h5>Priority:</h5>&nbsp;</td>
+                                            <td><strong>Priority:</strong>&nbsp;</td>
                                             <td>
                                                 {{#if(equals(issue.priority.name, "Blocker"))}}
                                                     <img style="outline: none; text-decoration: none; border-radius: 100%;" src="https://jira.euris.it/images/icons/priorities/blocker.png" alt="blocker-priority-icon"/>
@@ -108,7 +108,7 @@
                                 <td>
                                     <table>
                                         <tr>
-                                            <td><h5>Assignee:</h5>&nbsp;</td>
+                                            <td><strong>Assignee:</strong>&nbsp;</td>
                                             <td><img src="{{assignee.avatarUrls.&quot;24x24&quot;}}" style="border-radius: 100%;" /></td>
                                             <td>{{issue.assignee.displayName}}</td>
                                         </tr>
@@ -120,7 +120,7 @@
                                 <td>
                                     <table>
                                         <tr>
-                                            <td><h5>Reporter:</h5>&nbsp;</td>
+                                            <td><strong>Reporter:</strong>&nbsp;</td>
                                             <td><img src="{{reporter.avatarUrls.&quot;24x24&quot;}}" style="border-radius: 100%;" /></td>
                                             <td>{{issue.reporter.displayName}}</td>
                                         </tr>
@@ -129,7 +129,10 @@
                             </tr>
 
                             {{#if(exists(issue.parent.key))}}
-                                <tr style="padding-top: 20px;">
+                                <tr style="margin-top: 20px;">
+                                    &nbsp;
+                                </tr>
+                                <tr>
                                     <td>
                                         <h4>Parent Detail:</h4>
                                     </td>
@@ -139,7 +142,7 @@
                                     <td>
                                         <table>
                                             <tr>
-                                                <td><h5>Parent Type:</h5>&nbsp;</td>
+                                                <td><strong>Type:</strong>&nbsp;</td>
                                                 <td>
                                                     {{#if(equals(issue.parent.issueType.name, "Bug"))}}
                                                         <img style="outline: none; text-decoration: none; border-radius: 100%;" src="https://jira.euris.it/images/icons/issuetypes/bug.png" alt="bug-icon"/>
@@ -164,7 +167,7 @@
                                     <td>
                                         <table>
                                             <tr>
-                                                <td><h5>Parent Priority:</h5>&nbsp;</td>
+                                                <td><strong>Priority:</strong>&nbsp;</td>
                                                 <td>
                                                     {{#if(equals(parent.priority.name, "Blocker"))}}
                                                         <img style="outline: none; text-decoration: none; border-radius: 100%;" src="https://jira.euris.it/images/icons/priorities/blocker.png" alt="blocker-priority-icon"/>
@@ -195,7 +198,7 @@
                                     <td>
                                         <table>
                                             <tr>
-                                                <td><h5>Status:</h5>&nbsp;</td>
+                                                <td><strong>Status:</strong>&nbsp;</td>
                                                 <td colspan="2">{{parent.status.name}}</td>
                                             </tr>
                                         </table>
@@ -206,7 +209,7 @@
                                     <td>
                                         <table>
                                             <tr>
-                                                <td><h5>Assignee:</h5>&nbsp;</td>
+                                                <td><strong>Assignee:</strong>&nbsp;</td>
                                                 <td><img src="{{parent.assignee.avatarUrls.&quot;24x24&quot;}}" style="border-radius: 100%;" /></td>
                                                 <td>{{parent.assignee.displayName}}</td>
                                             </tr>
@@ -218,7 +221,7 @@
                                     <td>
                                         <table>
                                             <tr>
-                                                <td><h5>Reporter:</h5>&nbsp;</td>
+                                                <td><strong>Reporter:</strong>&nbsp;</td>
                                                 <td><img src="{{parent.reporter.avatarUrls.&quot;24x24&quot;}}" style="border-radius: 100%;" /></td>
                                                 <td>{{parent.reporter.displayName}}</td>
                                             </tr>
@@ -239,7 +242,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <p>{{issue.description}}</p>
+                                    {{issue.description}}
                                 </td>
                             </tr>
                         </table>
