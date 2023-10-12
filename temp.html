@@ -27,7 +27,7 @@
                                         <a href="https://jira.euris.it/browse/{{issue.parent.key}}">{{issue.parent.key}}</a>&nbsp;/
                                     {{/}}
                                     <a href="{{url}}">{{key}}</a>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;<span style="background-color: #06D6A0;">&nbsp;&nbsp;{{issue.status.name}}&nbsp;&nbsp;</span>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;<span style="background-color: #118AB2;">&nbsp;&nbsp;{{issue.status.name}}&nbsp;&nbsp;</span>
                                 </td>
                             </tr>
                             <tr>
@@ -156,7 +156,7 @@
                                         <tr>
                                             <td><strong>Original Estimate:</strong>&nbsp;</td>
                                             <td>
-                                                {{#if(issue.Original Estimate.lte(0))}}No Value Provided{{/}}{{#if(issue.Original Estimate.gt(0))}}{{#=}}FLOOR({{issue.Original Estimate}} / 28800){{/}}d {{#=}}FLOOR(({{issue.Original Estimate}} % 28800) / 3600){{/}}h {{#=}}FLOOR((({{issue.Original Estimate}} % 28800) % 3600) / 60){{/}}m{{/}}
+                                                {{#if(issue.Original Estimate.lte(0))}}No Value Provided{{/}}{{#if(issue.Original Estimate.gt(0))}}{{#=}}FLOOR({{Original Estimate}} / 28800){{/}}d {{#=}}FLOOR(({{Original Estimate}} % 28800) / 3600){{/}}h {{#=}}FLOOR((({{Original Estimate}} % 28800) % 3600) / 60){{/}}m{{/}}
                                             </td>
                                         </tr>
                                     </table>
@@ -169,7 +169,11 @@
                                         <tr>
                                             <td><strong>Time Spent:</strong>&nbsp;</td>
                                             <td>
-                                                {{#if(issue.TimeSpent.lte(0))}}No Value Provided{{/}}{{#if(issue.TimeSpent.gt(0))}}{{#=}}FLOOR({{issue.TimeSpent}} / 28800){{/}}d {{#=}}FLOOR(({{issue.TimeSpent}} % 28800) / 3600){{/}}h {{#=}}FLOOR((({{issue.TimeSpent}} % 28800) % 3600) / 60){{/}}m{{/}}
+                                                {{#if(issue.TimeSpent.gt(0))}}
+                                                    {{#=}}FLOOR({{TimeSpent}} / 28800){{/}}d
+                                                    {{#=}}FLOOR(({{TimeSpent}} % 28800) / 3600){{/}}h
+                                                    {{#=}}FLOOR((({{TimeSpent}} % 28800) % 3600) / 60){{/}}m
+                                                {{/}}
                                             </td>
                                         </tr>
                                     </table>
@@ -180,9 +184,13 @@
                                 <td>
                                     <table>
                                         <tr>
-                                            <td><strong>Remaining Estimate:</strong>&nbsp;</td>
+                                            <td><strong>Original Estimate:</strong>&nbsp;</td>
                                             <td>
-                                                {{#if(issue.Remaining Estimate.lte(0))}}No Value Provided{{/}}{{#if(issue.Remaining Estimate.gt(0))}}{{#=}}FLOOR({{issue.Remaining Estimate}} / 28800){{/}}d {{#=}}FLOOR(({{issue.Remaining Estimate}} % 28800) / 3600){{/}}h {{#=}}FLOOR((({{issue.Remaining Estimate}} % 28800) % 3600) / 60){{/}}m{{/}}
+                                                {{#if(issue.TimeSpent.gt(0))}}
+                                                    {{#=}}FLOOR({{TimeSpent}} / 28800){{/}}d
+                                                    {{#=}}FLOOR(({{TimeSpent}} % 28800) / 3600){{/}}h
+                                                    {{#=}}FLOOR((({{TimeSpent}} % 28800) % 3600) / 60){{/}}m
+                                                {{/}}
                                             </td>
                                         </tr>
                                     </table>
