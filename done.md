@@ -19,7 +19,7 @@ Enjoy **{{issue.reporter.displayName}}**, **{{issue.assignee.displayName}}** has
 
 {{#if(exists(issue.parent.key))}}
 ### Parent Detail:
-- **Summary:** {{parent.summary}}
+- **Summary:** {{issue.parent.summary}}
 - **Key:** [{{issue.parent.key}}]({{issue.parent.url}})
 - **Type:** {{issue.parent.issueType.name}}
 - **Priority:** {{issue.parent.priority.name}}

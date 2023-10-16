@@ -38,25 +38,58 @@
                 </tr>
             </table>
 
-            <table>
+            <!-- https://community.atlassian.com/t5/Jira-Software-questions/How-to-trigger-automation-action-if-comment-contains-user/qaq-p/1324139 -->
+
+            <table style="width: 100%;">
                 <tr>
                     <td style="width: 100%; vertical-align: top;">
-                        <table>
-                            <tr>
-                                <td>
+                        <table style="width: 100%;">
+                            <tr style="width: 100%;">
+                                <td style="width: 100%;">
+                                    <h3>Last Comment:</h3>
+                                </td>
+                            </tr>
+                            <tr style="width: 100%;">
+                                <td style="width: 100%;">
+                                    <table style="width: 100%;">
+                                        <tr style="width: 100%;">
+                                            <td></td>
+                                            <td style="width: 90%;">
+                                                {{#issue.comments.last}}
+                                                    <div style="width: 100%; border: 2px solid #c90064; background-color: #118AB2; border-radius: 10px; padding: 15px; margin: 15px; background-color: #f7f2fa;">
+                                                        <div style="font-weight: bold; padding-bottom: 5px;">Comment by: <strong>{{author.displayName}}</strong></div>
+                                                        <div style="margin-top: 10px;">{{body}}</div>
+                                                        <div style="text-align: right; font-style: italic; margin-top: 10px;">{{created.fullDate}}</div>
+                                                    </div>                                    
+                                                {{/}}
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr style="width: 100%;">
+                                <td style="width: 100%;">
                                     <h3>Comments:</h3>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>
-                                    {{#issue.comments}}
-                                        <div style="padding-left: 10px;">
-                                            Comment by: <strong>{{author.displayName}}</strong> at: {{created}}
-                                        </div>
-                                        <div style="padding-left: 20px; margin-bottom: 20px;">
-                                            {{body}}
-                                        </div>
-                                    {{/}}
+                            <tr style="width: 100%;">
+                                <td style="width: 100%;">
+                                    <table style="width: 100%;">
+                                        <tr style="width: 100%;">
+                                            <td></td>
+                                            <td style="width: 90%;">
+                                                {{#issue.comments.reverse}}
+                                                    <div style="width: 100%; border: 2px solid #c90064; background-color: #118AB2; border-radius: 10px; padding: 15px; margin: 15px; background-color: #f7f2fa;">
+                                                        <div style="font-weight: bold; padding-bottom: 5px;">Comment by: <strong>{{author.displayName}}</strong></div>
+                                                        <div style="margin-top: 10px;">{{body}}</div>
+                                                        <div style="text-align: right; font-style: italic; margin-top: 10px;">{{created.fullDate}}</div>
+                                                    </div>                                    
+                                                {{/}}
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                                    </table>
                                 </td>
                             </tr>
                         </table>
